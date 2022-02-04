@@ -1,6 +1,3 @@
-import ex1.mapping
-
-
 def build_roles_tree(mapping):
     """
     :param mapping: маппинг ролей в категории
