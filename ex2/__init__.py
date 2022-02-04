@@ -1,5 +1,5 @@
 from ex2 import fetcher
-
+import time
 CALL_COUNT = 10
 
 
@@ -11,11 +11,21 @@ def benchmark(num):
     :return: функцию обёртку
     """
     def wrapper(func):
-        # put your code here
-        pass
+        def wrapper_too(*args, **kwargs):
+            total_time = 0
+            for i in range(num):
+                start = time.time()
+                func(*args, **kwargs)
+                end = time.time()
+                lead_time = end - start
+                print("Прогон №", i + 1, " выполнен за ", lead_time)
+                total_time += lead_time
+            print("Среднее время выполнения: ", total_time / num)
+        return wrapper_too
     return wrapper
 
 
 @benchmark(CALL_COUNT)
 def fetch_page(url):
     fetcher.get(url)
+
