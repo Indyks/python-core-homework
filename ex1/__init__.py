@@ -1,8 +1,11 @@
 import ex1.mapping
-from ex1.mapping import RAW_MAPPING, ROLES_TREE
 
 
 def build_roles_tree(mapping):
+    """
+    :param mapping: маппинг ролей в категории
+    :return: дерево ролей
+    """
     categories = []
     for category_id in mapping["categoryIdsSorted"]:
         category = {

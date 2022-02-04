@@ -9,3 +9,4 @@ def cross_join(employees, departments):
     for last_name in employees:
         for department_name in departments:
             yield(last_name, department_name)
+            
